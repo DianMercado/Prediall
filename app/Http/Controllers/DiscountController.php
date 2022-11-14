@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use PDF;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Discount;
@@ -13,6 +13,11 @@ class DiscountController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function pdf(){
+        $discount=Discount::all();
+        $pdf=PDF::loadView('listadoDescuento', compact('discount'));
+        return $pdf->download('listadoDescuento.pdf');
+    }
     public function index()
     {
         $discount=Discount::all();

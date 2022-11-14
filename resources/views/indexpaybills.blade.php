@@ -42,10 +42,11 @@
   
 </table>
 @endforeach
+
                 </div>
                
             </div>
-            
+            <a href="{{route ('listadoComprobantes.pdf')}}" class="btn btn-outline-dark">Descargar</a>
         </div>
         
     </div>

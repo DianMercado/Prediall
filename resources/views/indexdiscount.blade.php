@@ -43,6 +43,7 @@
   
 </table>
 @endforeach
+<a href="{{route ('listadoDescuento.pdf')}}" class="btn btn-outline-dark">Descargar</a>
                 </div>
                
             </div>

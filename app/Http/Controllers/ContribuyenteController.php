@@ -15,8 +15,8 @@ class ContribuyenteController extends Controller
      */
     public function index()
     {
-        $contribuyente=Contribuyente::all();
-        return view("indexcontribuyente",compact("contribuyente"));
+      
+        return view("pago");
     }
 
     /**
@@ -48,14 +48,13 @@ class ContribuyenteController extends Controller
     public function store(Request $request)
     {
     
-            $contribuyente = new Contribuyente();
-            $contribuyente->nombre=$request->input("nombre");
-            $contribuyente->apellido_paterno=$request->input("apellido_paterno");
-            $contribuyente->apellido_materno=$request->input("apellido_materno");
-            $contribuyente->clave_catastral=$request->input("clave_catastral");
-
-            $contribuyente->save();
-            return view("showcontribuyente");
+            $contribuyentes = new Contribuyente();
+            $contribuyentes->nombre=$request->input("nombre");
+            $contribuyentes->apellido_paterno=$request->input("apellido_paterno");
+            $contribuyentes->apellido_materno=$request->input("apellido_materno");
+            $contribuyentes->clave_catastral=$request->input("clave_catastral");
+            $contribuyentes->save();
+            return view("showcontribuyente", compact("contribuyentes"));
     }
 
     /**
@@ -66,8 +65,8 @@ class ContribuyenteController extends Controller
      */
     public function show()
     {
-        $contribuyente = Contribuyente::find($id);
-        return view("showcontribuyente", compact("contribuyente"));
+        $contribuyentes = Contribuyente::find($contribuyentes);
+        return view("showcontribuyente", compact("contribuyentes"));
     }
 
     /**
@@ -90,8 +89,8 @@ class ContribuyenteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $contribuyente = Contribuyente::find($id);
-        $contribuyente->save( );
+        $contribuyentes = Contribuyente::find($id);
+        $contribuyentes->save( );
         return redirect("contribuyentes/");
     }
 

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use  PDF;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\PayBills;
@@ -13,6 +13,11 @@ class PayBillsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function pdf(){
+        $pay_bills=PayBills::all();
+        $pdf=PDF::loadView('listadoComprobantes', compact('pay_bills'));
+        return $pdf->download('listadoComprobantes.pdf');
+    }
     public function index()
     {
         $pay_bills=PayBills::all();

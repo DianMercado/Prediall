@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+{!!Form::model($pay_bills,['route'=>['paybills.update',$pay_bills],'method'=>'PUT','files'=>true])!!}
+
 <div class="container  align-items: center; y justify-content: center ">
 <form class="form-group" method="POST" action = "{{action('PayBillsController@update', $pay_bills->id)}}" enctype="multipart/form-data">
 @csrf
@@ -19,9 +21,15 @@
 </div>
 </div>
 <div class="col text-center">
-        <button type="submit" class="btn btn-outline-dark btn-lg">Guardar</button>
+        
+        {{Form::submit('Guardar',['class'=>'btn btn-outline-dark btn-lg'])}}
         <label for=""></label>
          <label for=""></label>
     	</div>
          </form>
+{!!Form::close()!!}
 @endsection
+
+
+
+
