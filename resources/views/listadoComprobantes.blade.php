@@ -2,10 +2,14 @@
 @extends('layouts.pdfinicio')
 @section('content')
 
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">{{ __('Comprobantes de pago') }}</div>
 
-<div class="card-body">
+                <div class="card-body">
   @foreach ($pay_bills as $pay_bills)
-<table class="table">
+                    <table class="table">
   <thead>
   
     <tr>
@@ -14,6 +18,7 @@
       <th scope="col">Teléfono</th>
       <th scope="col">Correo</th>
       <th scope="col">Comprobante</th>
+
     </tr>
   </thead>
   <tbody>
@@ -22,14 +27,26 @@
       <td>{{$pay_bills->clave_catastral}}</td>
       <td>{{$pay_bills->telefono}}</td>
       <td>{{$pay_bills->correo}}</td>
+
       <td><img style="height: 100px; width: 100px; background-color: #EFEFEF; margin: 20px;"
         class="card-img-top rounded-circle mx-auto d-block" src="images/{{$pay_bills->comprobante_pago_cliente}}"></td>
+      
+      
+    </tr>
+    <tr>
     </tr>
   </tbody>
+  
 </table>
 @endforeach
+
                 </div>
+               
             </div>
+
         </div>
+        
     </div>
+    
 @endsection
+
